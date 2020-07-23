@@ -9,15 +9,18 @@ var threeDays = $("<h4>").text(moment().add(3,'days').format("MMM DD"));
 var fourDays = $("<h4>").text(moment().add(4,'days').format("MMM DD"));
 var fiveDays = $("<h4>").text(moment().add(5,'days').format("MMM DD"));
 
-$("button").on("click", function displayWeather() {
-    
+for (let i = 0; i < 10; i++) {
+    var cityKey = localStorage.key(i);
+    var storCity = localStorage.getItem(cityKey);
+    if (cityKey !== null) {
+        addButton(storCity);
+    }
+}
+
+function displayWeather() {
     var input = document.getElementById("cityInput").value;
     var queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=4ab30337f3dc47ca63d4beafd0c4703f";
     var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + input + "&cnt=5&units=imperial&appid=4ab30337f3dc47ca63d4beafd0c4703f";
-
-    // if (input !== "") {
-    //     addButton(input);
-    // }
 
     // Current weather conditions for inputted city
     $.ajax({
@@ -27,8 +30,9 @@ $("button").on("click", function displayWeather() {
         $("#cityInput").val("");
         $("#today").remove();
 
-        if (input !== "" || response !== null) {
+        if (input !== "" || response) {
             addButton(input);
+            localStorage.setItem(input, input);
         }
     
         var card = $("<div>");
@@ -138,11 +142,11 @@ $("button").on("click", function displayWeather() {
         $("#five-days").append(humid5);
 
     })
-})
+}
 
 // Include search history buttons
-function addButton(input) {
+function addButton(item) {
     var newButton = $("<button>").attr({"type":"button", "class":"btn btn-outline-secondary btn-lg"});
-    $(newButton).text(input);
+    $(newButton).text(item);
     $("#buttons").append(newButton);
 }
