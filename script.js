@@ -17,7 +17,7 @@ for (let i = 0; i < 10; i++) {
     }
 }
 
-function displayWeather() {
+$("#submit").on("click", function displayWeather() {
     var input = document.getElementById("cityInput").value;
     var queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&appid=4ab30337f3dc47ca63d4beafd0c4703f";
     var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + input + "&cnt=5&units=imperial&appid=4ab30337f3dc47ca63d4beafd0c4703f";
@@ -142,11 +142,12 @@ function displayWeather() {
         $("#five-days").append(humid5);
 
     })
-}
+})
 
 // Include search history buttons
 function addButton(item) {
     var newButton = $("<button>").attr({"type":"button", "class":"btn btn-outline-secondary btn-lg"});
     $(newButton).text(item);
+    console.log(item);
     $("#buttons").append(newButton);
 }
