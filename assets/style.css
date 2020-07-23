@@ -1,0 +1,43 @@
+
+.jumbotron {
+    font-family: 'MuseoModerno', cursive;
+    text-align: center;
+    background-color: #add8e6;
+}
+
+.lead {
+    font-size: 30px;
+}
+
+.display-4 {
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    margin: 10px;
+}
+
+.card-body h2 {
+    font-family: 'MuseoModerno', cursive;
+    font-weight: bold;
+}
+
+.forecast {
+    background-color: #62b4cf;
+    width: 200px;
+}
+
+h4 {
+    font-family: 'MuseoModerno', cursive;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 20px;
+}
