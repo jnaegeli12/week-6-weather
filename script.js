@@ -96,7 +96,6 @@ function ajaxCall(input) {
         for (var i = 0; i < forecastList.length; i++) {
 
             var rawTime = convertUnix(forecastList[i].dt);
-            console.log(rawTime);
 
             if (rawTime === "14:00:00") {
 
